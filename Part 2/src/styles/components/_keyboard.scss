@@ -1,0 +1,62 @@
+.keyboard-wrapper {
+    display: inline-block;
+}
+
+.keyboard-keys {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+
+.keyboard-wrapper {
+    .enter-key {
+        margin: 2px;
+        min-width: 64px;
+    }
+
+    .backspace-key {
+        margin: 2px;
+        min-width: 45px;
+        position: relative;
+        background: linear-gradient(180deg, #f5f5f5 0%, #e0e0e0 100%);
+        overflow: hidden;
+        text-indent: -99999px;
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 36px;
+            height: 100px;
+            background: url(/backspace-icon.svg) center center / contain no-repeat;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        span {
+            opacity: 0;
+        }
+    }
+
+    .letter-key {
+        margin: 2px;
+        min-width: 32px;
+    }
+
+    .letter-key, .enter-key, .backspace-key {
+        background: linear-gradient(180deg, #f5f5f5 0%, #e0e0e0 100%);
+        border: 1px solid #bdbdbd;
+        border-radius: 0;
+        box-shadow: 2px 3px 2px rgba(0,0,0,0.3);
+        color: #333;
+        font-weight: 600;
+        padding: 10px 0;
+        transition: box-shadow 0.1s, transform 0.1s;
+
+        &:active {
+            box-shadow: 0 1px 4px rgba(0,0,0,0.4) inset;
+            transform: translateY(2px);
+        }
+    }
+}
